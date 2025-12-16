@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Metaetiquetas para SEO -->
+    <title>Tienda Liday - Indumentaria para Mujer</title>
+    <meta
+      name="description"
+      content="Tienda Liday - Encuentra las mejores prendas de vestir y accesorios de moda a precios increíbles. Envíos a todo el país."
+    />
+    <meta
+      name="keywords"
+      content="ropa, moda, accesorios, tienda online, compras, fashion"
+    />
+    <meta name="author" content="Tienda Liday" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph para redes sociales -->
+    <meta
+      property="og:title"
+      content="Tienda Liday - Indumentaria para Mujer"
+    />
+    <meta
+      property="og:description"
+      content="Encuentra las mejores prendas de vestir para mujer a los precios increíbles"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tienda-liday.com" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome para iconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-4 col-6">
+            <div class="logo">
+              <h1><i class="fas fa-store"></i> Tienda Liday</h1>
+              <p class="tagline">Moda que inspira</p>
+            </div>
+          </div>
+          <div class="col-md-8 col-6">
+            <div class="header-right text-end">
+              <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#inicio"
+                ><i class="fas fa-home"></i> Inicio</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#productos"
+                ><i class="fas fa-tshirt"></i> Productos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#reseñas"
+                ><i class="fas fa-star"></i> Reseñas</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto"
+                ><i class="fas fa-envelope"></i> Contacto</a
+              >
+            </li>
+          </ul>
+
+          <!-- Formulario de búsqueda -->
+          <form class="d-flex search-form" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Buscar productos..."
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-light" type="submit">Buscar</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main>
+      <!-- Sección Hero / Inicio -->
+      <section id="inicio" class="hero-section">
+        <div class="container">
+          <div class="hero-content">
+            <h2>Bienvenido a Tienda Liday</h2>
+            <p>Descubre nuestra colección exclusiva de ropa para mujer</p>
+            <a href="#productos" class="btn btn-primary btn-hero"
+              >Ver Productos</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Productos -->
+      <section id="productos" class="products-section">
+        <div class="container">
+          <h2 class="section-title">Nuestros Productos</h2>
+          <p class="section-subtitle">Explora nuestra colección de moda</p>
+
+          <!-- Filtros de productos -->
+          <div class="product-filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="ropa">Ropa</button>
+            <button class="filter-btn" data-filter="accesorios">
+              Accesorios
+            </button>
+            <button class="filter-btn" data-filter="ofertas">Ofertas</button>
+          </div>
+
+          <!-- Contenedor de productos -->
+          <div class="products-container" id="productsContainer">
+            <!-- Los productos se cargarán dinámicamente con JavaScript -->
+            <div class="loading-spinner">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Cargando productos...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Reseñas -->
+      <section id="reseñas" class="reviews-section">
+        <div class="container">
+          <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+          <p class="section-subtitle">Opiniones de clientes satisfechos</p>
+
+          <div class="reviews-grid">
+            <!-- Reseña 1 -->
+            <div class="review-card">
+              <div class="review-header">
+                <img
+                  src="https://randomuser.me/api/portraits/women/32.jpg"
+                  alt="María González"
+                  class="review-avatar"
+                />
+                <div class="review-info">
+                  <h4>María González</h4>
+                  <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">
+                "Excelente calidad en los productos y entrega muy rápida.
+                Volveré a comprar sin duda."
+              </p>
+            </div>
+
+            <!-- Reseña 2 -->
+            <div class="review-card">
+              <div class="review-header">
+                <img
+                  src="https://randomuser.me/api/portraits/men/54.jpg"
+                  alt="Carlos Rodríguez"
+                  class="review-avatar"
+                />
+                <div class="review-info">
+                  <h4>Carlos Rodríguez</h4>
+                  <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">
+                "La atención al cliente es excepcional. Me ayudaron a elegir el
+                regalo perfecto para mi esposa."
+              </p>
+            </div>
+
+            <!-- Reseña 3 -->
+            <div class="review-card">
+              <div class="review-header">
+                <img
+                  src="https://randomuser.me/api/portraits/women/67.jpg"
+                  alt="Ana López"
+                  class="review-avatar"
+                />
+                <div class="review-info">
+                  <h4>Ana López</h4>
+                  <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">
+                "Los precios son increíbles para la calidad que ofrecen. Mi
+                pedido llegó antes de lo esperado."
+              </p>
+            </div>
+
+            <!-- Reseña 4 -->
+            <div class="review-card">
+              <div class="review-header">
+                <img
+                  src="https://randomuser.me/api/portraits/men/22.jpg"
+                  alt="Javier Pérez"
+                  class="review-avatar"
+                />
+                <div class="review-info">
+                  <h4>Javier Pérez</h4>
+                  <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">
+                "Buena experiencia de compra. El único detalle fue que la talla
+                vino un poco ajustada."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video Promocional -->
+      <section class="video-section">
+        <div class="container">
+          <h2 class="section-title">Nuestra Colección</h2>
+          <p class="section-subtitle">
+            Descubre nuestra nueva línea de productos
+          </p>
+
+          <div class="video-container">
+            <!-- Video de YouTube (video promocional de moda) -->
+            <div class="ratio ratio-16x9">
+              <iframe
+                src="https://www.youtube.com/embed/watch?v=6stlCkUDG_s&list=PL4Gr5tOAPttLOY9IrWVjJlv4CtkYI5cI_"
+                title="Colección Tienda Liday - Moda Primavera-Verano 2026"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Contacto -->
+      <section id="contacto" class="contact-section">
+        <div class="container">
+          <h2 class="section-title">Contáctanos</h2>
+          <p class="section-subtitle">
+            ¿Tienes preguntas? Estamos aquí para ayudarte
+          </p>
+
+          <div class="contact-container">
+            <div class="contact-info">
+              <h3>Información de Contacto</h3>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                  <h4>Dirección</h4>
+                  <p>Bacacay 3590, Caba</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                  <h4>Teléfono</h4>
+                  <p>+5491144169604</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <h4>Email</h4>
+                  <p>tiendaliday@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <h4>Horario de Atención</h4>
+                  <p>Lunes a Viernes: 9:00 - 17:00</p>
+                  <p>Sábados: 8:00 - 14:00</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Formulario de Contacto -->
+            <div class="contact-form">
+              <h3>Envíanos un mensaje</h3>
+              <form
+                id="contactForm"
+                action="https://formspree.io/f/xldqkapv"
+                method="POST"
+              >
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nombre completo *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    required
+                  />
+                  <div class="invalid-feedback" id="nameError">
+                    Por favor ingresa tu nombre completo.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label"
+                    >Correo electrónico *</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    required
+                  />
+                  <div class="invalid-feedback" id="emailError">
+                    Por favor ingresa un correo electrónico válido.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="message" class="form-label">Mensaje *</label>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                  ></textarea>
+                  <div class="invalid-feedback" id="messageError">
+                    Por favor ingresa tu mensaje.
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-submit">
+                  Enviar Mensaje
+                </button>
+                <div
+                  class="alert alert-success mt-3 d-none"
+                  id="successMessage"
+                >
+                  ¡Mensaje enviado correctamente! Nos pondremos en contacto
+                  contigo pronto.
+                </div>
+                <div class="alert alert-danger mt-3 d-none" id="errorMessage">
+                  Hubo un error al enviar el mensaje. Por favor, intenta
+                  nuevamente.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Carrito de Compras (Modal) -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <i class="fas fa-shopping-cart"></i> Carrito de Compras
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="cart-container" id="cartContainer">
+              <!-- Contenido del carrito se carga dinámicamente -->
+              <div class="empty-cart" id="emptyCart">
+                <i class="fas fa-shopping-cart fa-3x"></i>
+                <p>Tu carrito está vacío</p>
+                <a
+                  href="#productos"
+                  class="btn btn-primary"
+                  data-bs-dismiss="modal"
+                  >Ver Productos</a
+                >
+              </div>
+
+              <div class="cart-items d-none" id="cartItems">
+                <!-- Los productos del carrito se cargarán aquí -->
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer d-none" id="cartFooter">
+            <div class="cart-total">
+              <h5>Total: <span id="cartTotal">$0.00</span></h5>
+            </div>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Seguir Comprando
+            </button>
+            <button type="button" class="btn btn-success" id="checkoutBtn">
+              Finalizar Compra
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h3><i class="fas fa-store"></i> Tienda Liday</h3>
+            <p>Moda que inspira, calidad que perdura</p>
+          </div>
+
+          <div class="footer-links">
+            <h4>Enlaces Rápidos</h4>
+            <ul>
+              <li><a href="#inicio">Inicio</a></li>
+              <li><a href="#productos">Productos</a></li>
+              <li><a href="#reseñas">Reseñas</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-social">
+            <h4>Síguenos</h4>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-newsletter">
+            <h4>Suscríbete</h4>
+            <p>Recibe ofertas exclusivas y novedades</p>
+            <form class="newsletter-form">
+              <input
+                type="email"
+                placeholder="Tu correo electrónico"
+                required
+              />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Tienda Liday. Todos los derechos reservados.</p>
+          <p>Proyecto educativo para el curso Front - End JS</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript Personalizado -->
+    <script src="script.js"></script>
+  </body>
+</html>
